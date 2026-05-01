@@ -1,0 +1,47 @@
+Objective:
+Students will deploy, manage, and scale a simple web application on Kubernetes using the concepts they have learned. The project will cover deployments, services, configurations, storage, autoscaling, and monitoring. 
+ 
+Project Overview:
+You will deploy a Node.js web application (or any other simple web app of your choice) inside a Kubernetes cluster. The app will: ✅ Run inside Pods managed by a Deployment. ✅ Be exposed through a Service and accessible via an Ingress. ✅ Store its data in a Persistent Volume (PV). ✅ Use ConfigMaps and Secrets for configuration. ✅ Implement Horizontal Pod Autoscaler (HPA) to scale based on CPU usage. ✅ Monitor the application using kubectl top and kubectl logs. 
+
+Instructions
+1. Set Up Your Kubernetes Cluster
+
+* Set up a Kubernetes cluster using either Minikube (local) or a cloud provider (EKS, GKE, AKS).
+* Verify that your cluster is running properly.
+2. Create a Web Application and Containerize It
+
+* Setup a basic web application using any programming language (Node.js, Python, Go, etc.).
+* Containerize the application using Docker.
+* Push the container image to a Docker registry (Docker Hub, AWS ECR, GCP Artifact Registry, etc.).
+3. Deploy the Application on Kubernetes
+
+* Create a Deployment to manage your application.
+* Define the number of replicas.
+* Ensure the Deployment uses the correct container image.
+* Apply the Deployment configuration to your cluster.
+4. Configure Application Settings Using Kubernetes Objects
+
+* Use ConfigMaps to store environment variables for your application.
+* Use Secrets to store sensitive information (e.g., database credentials).
+* Attach these configurations to your Deployment.
+5. Expose the Application
+
+* Create a Service to make your application accessible within the cluster.
+* Use an Ingress Controller to expose the application externally.
+* Test that the application is accessible via a browser or API call.
+6. Implement Persistent Storage
+
+* Create a Persistent Volume (PV) and Persistent Volume Claim (PVC).
+* Attach the storage to your Deployment.
+* Ensure the application correctly writes and retrieves data from persistent storage.
+7. Enable Autoscaling
+
+* Set up Horizontal Pod Autoscaler (HPA) to scale Pods based on CPU usage.
+* Generate traffic to test if the application scales automatically.
+* Monitor the scaling behavior using Kubernetes tools.
+8. Monitor and Troubleshoot the Application
+
+* Use kubectl logs to check application logs.
+* Monitor resource usage with kubectl top.
+* Inspect cluster events and troubleshoot issues using kubectl describe.
