@@ -13,12 +13,24 @@ spec:
     metadata:
       labels:
         app: webapp
-    spec:
+    spec:                     
+      volumes:
+      - name: data-volume
+        persistentVolumeClaim:
+          claimName: webapp-pvc
       containers:
       - name: webapp
-        image: cyberv99/k8s-app:v1
+        image: cyberv999/k8s-app:v1
         ports:
         - containerPort: 3000
+        envFrom:
+        - configMapRef:
+            name: webapp-config
+        - secretRef:
+            name: webapp-secret
+        volumeMounts:
+        - name: data-volume
+          mountPath: /data
         resources:
           requests:
             cpu: "100m"
